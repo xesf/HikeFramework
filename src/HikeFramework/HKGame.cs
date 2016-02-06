@@ -13,9 +13,9 @@ namespace HikeFramework
 		protected int _screenHeight; /** desire screen height */
 		
 		protected IHKWindow _window;
-		protected IPlatformFactory _platformFactory;
+		protected IHKPlatformFactory _platformFactory;
 
-		public HKGame (IPlatformFactory platformFactory)
+		public HKGame (IHKPlatformFactory platformFactory)
 		{
 			this._platformFactory = platformFactory;
 		}
@@ -23,19 +23,19 @@ namespace HikeFramework
 		public IHKWindow Window { get { return _window; } }
 
 		/** Initialize systems */
-		protected abstract void Initialize();
+		public abstract void Initialize();
 
-		/** Loading contents */
-		protected abstract void LoadContent();
+        /** Loading contents */
+        public abstract void LoadContent();
 
-		/** Handle system events */
-		protected abstract void ProcessEvents();
+        /** Handle system events */
+        public abstract void ProcessEvents();
 
-		/** main loop update */
-		protected abstract void Update();
+        /** main loop update */
+        public abstract void Update();
 
-		/** main loop render */
-		protected abstract void Draw();
+        /** main loop render */
+        public abstract void Draw();
 
 		public virtual bool CanQuit() {
 			// TODO for platforms like Android and iOS this flag should be false

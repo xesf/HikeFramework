@@ -3,9 +3,9 @@ using HikeFramework.Core;
 
 namespace HikeFramework
 {
-	public interface IPlatformFactory
+	public interface IHKPlatformFactory
 	{
 		HKWindow CreateWindow(string title, int width, int height, bool fullscreen);
-		HKFileStream CreateFileStream();
-	}
+        HKFileStream CreateFileStream { get; }
+    }
 }

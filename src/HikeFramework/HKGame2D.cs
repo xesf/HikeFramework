@@ -13,36 +13,36 @@ namespace HikeFramework
 			get { return _instance; }
 		}
 
-		public HKGame2D (IPlatformFactory platformFactory)
+		public HKGame2D (IHKPlatformFactory platformFactory)
 			: base(platformFactory)
 		{
 			HKGame2D.Current = this;
 		}
 
-		#region implemented abstract members of Game
+        #region implemented abstract members of Game
 
 
-		protected override void Initialize()
+        public override void Initialize()
 		{
             this._window.Initialize();
 		}
 
-		protected override void LoadContent()
+        public override void LoadContent()
 		{
 
 		}
 
-		protected override void ProcessEvents()
+        public override void ProcessEvents()
 		{
 
 		}
 
-		protected override void Update()
+        public override void Update()
 		{
 
 		}
 
-		protected override void Draw()
+        public override void Draw()
 		{
 			
 		}
