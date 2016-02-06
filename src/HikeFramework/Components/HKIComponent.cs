@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HikeFramework
+namespace HikeFramework.Components
 {
-    public class Class1
+    public interface HKIComponent
     {
+        bool Enabled { get; set; }
     }
 }
