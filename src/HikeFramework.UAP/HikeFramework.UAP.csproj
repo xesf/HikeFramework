@@ -131,6 +131,10 @@
       <Project>{b14309b6-443e-4b0c-8ef8-cec491ff15ee}</Project>
       <Name>HikeFramework.Win2D</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HikeFramework\HikeFramework.csproj">
+      <Project>{1386191b-6915-47f5-b46f-02092abbf413}</Project>
+      <Name>HikeFramework</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
