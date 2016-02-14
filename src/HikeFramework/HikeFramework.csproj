@@ -115,11 +115,14 @@
     <Compile Include="Core\IHKWindow.cs" />
     <Compile Include="Exceptions\HKException.cs" />
     <Compile Include="Extensions\HKStringExtensions.cs" />
+    <Compile Include="Game\HKGameTime.cs" />
+    <Compile Include="Graphics\HKCanvas.cs" />
     <Compile Include="Graphics\HKShaderProgram.cs" />
     <Compile Include="Graphics\HKShaderType.cs" />
+    <Compile Include="Graphics\IHKCanvas.cs" />
     <Compile Include="Graphics\IHKShaderProgram.cs" />
-    <Compile Include="HKGame.cs" />
-    <Compile Include="HKGame2D.cs" />
+    <Compile Include="Game\HKGame.cs" />
+    <Compile Include="Game\HKGame2D.cs" />
     <Compile Include="HKRenderPipeline.cs" />
     <Compile Include="HKResourceManager.cs" />
     <Compile Include="IO\HKFileStream.cs" />

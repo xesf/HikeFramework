@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Threading;
 using HikeFramework.Core;
+using HikeFramework.Graphics;
+using Windows.UI;
 
-namespace HikeFramework
+namespace HikeFramework.Game
 {
 	public class HKGame2D : HKGame
 	{
@@ -37,14 +39,14 @@ namespace HikeFramework
 
 		}
 
-        public override void Update()
+        public override void Update(HKGameTime gameTime)
 		{
 
 		}
 
-        public override void Draw()
+        public override void Draw(IHKCanvas canvas)
 		{
-			
+            canvas.Clear(Colors.DarkGray);
 		}
 
 		#endregion

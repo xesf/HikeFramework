@@ -1,4 +1,6 @@
 ﻿using HikeFramework.Common;
+using HikeFramework.Game;
+using HikeFramework.Win2D.Graphics;
 using HikeFramework.Win2D.Platform;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using Windows.UI;
@@ -35,12 +37,20 @@ namespace HikeFramework.Win2D
             };
 
             _canvas.Update += (s, a) => {
-                _game.Update();
+
+                var gameTime = new HKGameTime {
+                    ElapsedTime = a.Timing.ElapsedTime,
+                    IsRunningSlowly = a.Timing.IsRunningSlowly,
+                    TotalTime = a.Timing.TotalTime,
+                    UpdateCount = a.Timing.UpdateCount
+                };
+
+                _game.Update(gameTime); 
             };
 
             _canvas.Draw += (s, a) => {
-                a.DrawingSession.Clear(Colors.Blue);
-                _game.Draw();
+                var drawingSession = new HKWin2DCanvas(a.DrawingSession);
+                _game.Draw(drawingSession);
             };
 
             _canvas.SizeChanged += (s, a) => {

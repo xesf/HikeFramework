@@ -1,8 +1,9 @@
 ﻿using System;
 using HikeFramework.Common;
 using HikeFramework.Core;
+using HikeFramework.Graphics;
 
-namespace HikeFramework
+namespace HikeFramework.Game
 {
 	public abstract class HKGame : HKCoreObject
 	{
@@ -32,10 +33,10 @@ namespace HikeFramework
         public abstract void ProcessEvents();
 
         /** main loop update */
-        public abstract void Update();
+        public abstract void Update(HKGameTime gameTime);
 
         /** main loop render */
-        public abstract void Draw();
+        public abstract void Draw(IHKCanvas canvas);
 
 		public virtual bool CanQuit() {
 			// TODO for platforms like Android and iOS this flag should be false
