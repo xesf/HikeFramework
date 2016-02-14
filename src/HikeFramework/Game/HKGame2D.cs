@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Threading;
 using HikeFramework.Core;
 using HikeFramework.Graphics;
@@ -47,6 +48,8 @@ namespace HikeFramework.Game
         public override void Draw(IHKCanvas canvas)
 		{
             canvas.Clear(Colors.DarkGray);
+
+            canvas.DrawText("Hike Framework", Vector2.One * 50, Colors.Black);
 		}
 
 		#endregion
