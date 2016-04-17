@@ -47,10 +47,8 @@ namespace HikeFramework.Game
 
         public override void Draw(IHKCanvas canvas)
 		{
-            canvas.Clear(Colors.DarkGray);
-
-            canvas.DrawText("Hike Framework", Vector2.One * 50, Colors.Black);
-		}
+            canvas.Clear(Colors.Black);
+        }
 
 		#endregion
 	}

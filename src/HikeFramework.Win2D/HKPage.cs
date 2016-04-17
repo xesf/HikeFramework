@@ -17,11 +17,9 @@ namespace HikeFramework.Win2D
 
         public CanvasAnimatedControl Canvas { get { return _canvas;  } }
 
-        public HKPage()
+        public HKPage(HKGame2D game)
         {
-            var win2DPlatform = new HKWin2DPlatformFactory(); // TODO add proper platform initialization
-
-            _game = new HKGame2D(win2DPlatform); // TODO game should be given into this class
+            _game = game;
             _canvas = new CanvasAnimatedControl();
 
             _canvas.CreateResources += (s,a) => {

@@ -1,4 +1,6 @@
-﻿using HikeFramework.Win2D;
+﻿using HikeFramework.UAP.Game;
+using HikeFramework.Win2D;
+using HikeFramework.Win2D.Platform;
 using Windows.UI.Xaml.Controls;
 
 namespace HikeFramework.UAP
@@ -10,11 +12,14 @@ namespace HikeFramework.UAP
     {
         protected HKPage _page = null;
 
-        public HKPage Page { get { return _page = _page ?? new HKPage(); } }
+        public HKPage Page { get { return _page; } }
 
         public MainPage()
         {
             this.InitializeComponent();
+
+            var game = new TestGame(new HKWin2DPlatformFactory());
+            _page = new HKPage(game);
 
             canvasGrid.Children.Add(Page.Canvas);
         }
