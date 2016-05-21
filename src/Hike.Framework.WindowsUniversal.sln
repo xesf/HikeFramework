@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrandPrix.UniversalWindows"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrandPrix.Game.WindowsUniversal", "GrandPrix.Game.WindowsUniversal\GrandPrix.Game.WindowsUniversal.csproj", "{3F96A5D2-C0E2-401E-991F-007F6C3723CB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{6D8A3008-ABDE-41E3-B0C1-0D7AA099FACE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{98848052-1862-4834-9935-6DC32C759ED6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,5 +98,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{09C41A48-7BF3-4A46-9EB8-CE95B4C27CA9} = {6D8A3008-ABDE-41E3-B0C1-0D7AA099FACE}
+		{7DE4053B-5FC1-4315-9291-922F6837C1E1} = {98848052-1862-4834-9935-6DC32C759ED6}
+		{3F96A5D2-C0E2-401E-991F-007F6C3723CB} = {98848052-1862-4834-9935-6DC32C759ED6}
 	EndGlobalSection
 EndGlobal
