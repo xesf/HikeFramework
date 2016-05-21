@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hike.Framework.WindowsUniversal.Types;
 using Microsoft.Xna.Framework.Graphics;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -37,12 +38,14 @@ namespace Hike.Framework.WindowsUniversal
 
         void ViewSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            _graphicsDevice.PresentationParameters.BackBufferWidth = (int)e.NewSize.Width;
-            _graphicsDevice.PresentationParameters.BackBufferHeight = (int)e.NewSize.Height;
+            ViewSize = new HKSize((float)e.NewSize.Width, (float)e.NewSize.Height);
+
+            _graphicsDevice.PresentationParameters.BackBufferWidth = (int)ViewSize.Width;
+            _graphicsDevice.PresentationParameters.BackBufferHeight = (int)ViewSize.Height;
             _graphicsDevice.CreateSizeDependentResources();
             _graphicsDevice.ApplyRenderTargets(null);
 
-            //UpdateViewport();
+            UpdateViewport();
 
             //platformInitialised = true;
 

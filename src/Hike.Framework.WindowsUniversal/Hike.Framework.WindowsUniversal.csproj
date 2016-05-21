@@ -107,11 +107,13 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graphics\HKViewport.cs" />
     <Compile Include="HKGame.UniversalWindows.cs" />
     <Compile Include="HKGame.cs" />
     <Compile Include="tmp\HKGame.Monogame.cs" />
     <Compile Include="tmp\HKGamePlataform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\HKSize.cs" />
     <EmbeddedResource Include="Properties\Hike.Framework.WindowsUniversal.rd.xml" />
   </ItemGroup>
   <ItemGroup>
