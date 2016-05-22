@@ -13,6 +13,20 @@ namespace Hike.Framework.WindowsUniversal.Platform
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
 
+        public event EventHandler OnLoadContent;
+        public event EventHandler OnUnloadContent;
+
+        public event EventHandler OnBeginRun;
+        public event EventHandler OnUpdate;
+        public event EventHandler OnEndRun;
+
+        public event EventHandler OnBeginDraw;
+        public event EventHandler OnDraw;
+        public event EventHandler OnEndDraw;
+
+        public GraphicsDeviceManager Graphics { get { return _graphics; } }
+        public SpriteBatch DefaultSpriteBatch { get { return _spriteBatch; } }
+
         public HKGameXna()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -22,11 +36,14 @@ namespace Hike.Framework.WindowsUniversal.Platform
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+
             base.LoadContent();
+            OnLoadContent?.Invoke(this, null);
         }
 
         protected override void UnloadContent()
         {
+            OnUnloadContent?.Invoke(this, null);
             base.UnloadContent();
         }
 
@@ -34,29 +51,34 @@ namespace Hike.Framework.WindowsUniversal.Platform
         protected override void BeginRun()
         {
             base.BeginRun();
+            OnBeginRun?.Invoke(this, null);
         }
 
         protected override void Update(GameTime gameTime)
         {
             //to avoid calling the components
             //base.Update(gameTime);
+
+            OnUpdate?.Invoke(this, null);
         }
 
         protected override void EndRun()
         {
+            OnEndRun?.Invoke(this, null);
             base.EndRun();
         }
 
         protected override bool BeginDraw()
         {
             var canBegin = base.BeginDraw();
-
+            OnBeginDraw?.Invoke(this, null);
             return canBegin;
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            OnDraw?.Invoke(this, null);
 
             //to avoid calling the components
             //base.Draw(gameTime);    
@@ -64,6 +86,7 @@ namespace Hike.Framework.WindowsUniversal.Platform
 
         protected override void EndDraw()
         {
+            OnEndDraw?.Invoke(this, null);
             base.EndDraw();
         }
     }
