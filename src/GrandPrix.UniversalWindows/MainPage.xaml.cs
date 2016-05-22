@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using GrandPrix.Game.WindowsUniversal;
+using Hike.Framework.WindowsUniversal.Platform.UniversalWindows;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +24,13 @@ namespace GrandPrix.UniversalWindows
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        GrandPrixGame _game;
         public MainPage()
         {
             this.InitializeComponent();
+
+            var launchArguments = string.Empty;
+            _game = HKGameUniversalWindows<GrandPrixGame>.Create(launchArguments, Window.Current.CoreWindow, swapChainPanel);
         }
     }
 }
