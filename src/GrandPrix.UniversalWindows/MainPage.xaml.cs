@@ -1,4 +1,4 @@
-﻿using GrandPrix.Game.WindowsUniversal;
+﻿using GrandPrix.Game;
 using Hike.Framework.Platform;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
