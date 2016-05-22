@@ -6,11 +6,23 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:WindowsUniversal="using:Hike.Framework.WindowsUniversal"
     x:Class="GrandPrix.UniversalWindows.MainPage"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Width="Auto"
+    Height="Auto"
+    VerticalAlignment="Stretch" 
+    HorizontalAlignment="Stretch" 
+    HorizontalContentAlignment="Stretch"
+    VerticalContentAlignment="Stretch">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="Auto" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <WindowsUniversal:HKGame HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <WindowsUniversal:HKGame  Width="Auto" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
 
     </Grid>
 </Page>

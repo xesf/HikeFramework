@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace Hike.Framework.WindowsUniversal
 {
@@ -59,6 +60,39 @@ namespace Hike.Framework.WindowsUniversal
 #else
             presParams.SwapChainBackgroundPanel = this;
 #endif
+        }
+
+        void PlatformPresent()
+        {
+            if (_graphicsDevice != null)
+                _graphicsDevice.Present();
+        }
+
+        void PlatformUpdatePaused()
+        {
+           // if (Paused)
+           //     CompositionTarget.Rendering -= OnUpdateFrame;
+           // else
+                CompositionTarget.Rendering += OnUpdateFrame;
+
+            //MobilePlatformUpdatePaused();
+        }
+
+        void PlatformStartGame()
+        {
+            CompositionTarget.Rendering += OnUpdateFrame;
+            _viewportDirty = true;
+        }
+
+        void OnUpdateFrame(object sender, object e)
+        {
+            Tick();
+
+            _graphicsDevice.ResetRenderTargets();
+
+            Draw();
+
+            PlatformPresent();
         }
     }
 }
