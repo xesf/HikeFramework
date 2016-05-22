@@ -9,5 +9,6 @@ namespace GrandPrix.Game.WindowsUniversal
 {
     public class GrandPrixGame : HKGame
     {
+
     }
 }

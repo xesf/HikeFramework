@@ -8,7 +8,7 @@ namespace Hike.Framework.WindowsUniversal
     /// Hike Framework Game class
     /// Extend this class to create a new game with Hike Framework default options
     /// </summary>
-    public partial class HKGame : IDisposable
+    public abstract class HKGame : IDisposable
     {
         protected string _title = "Hike Framework";
         protected int _screenWidth; /** desire screen width */
@@ -17,31 +17,45 @@ namespace Hike.Framework.WindowsUniversal
         private HKGameXna _xnaGame;
         public HKGameXna XnaGame { get { return _xnaGame; } set { _xnaGame = value; RegisterEvents(); } }
 
-        public delegate void InitialiseHandler();
-        public delegate void LoadContentHandler();
-        public delegate void UnloadContentHandler();
-        public delegate void BeginRunHandler();
-        public delegate void UpdateHandler(HKGameTime gameTime);
-        public delegate void EndRunHandler();
-        public delegate void BeginDrawHandler();
-        public delegate void DrawHandler(HKGameTime gameTime);
-        public delegate void EndDrawHandler();
-
-        public event InitialiseHandler OnInitialise;
-        public event LoadContentHandler OnLoadContent;
-        public event UnloadContentHandler OnUnloadContent;
-
-        public event BeginRunHandler OnBeginRun;
-        public event UpdateHandler OnUpdate;
-        public event EndRunHandler OnEndRun;
-
-        public event BeginDrawHandler OnBeginDraw;
-        public event DrawHandler OnDraw;
-        public event EndDrawHandler OnEndDraw;
-
         public HKGame()
-        {
+        { }
 
+        public virtual void BeginRun()
+        { }
+
+        public virtual void Initialise()
+        { }
+
+        public virtual void LoadContent()
+        { }
+
+        public virtual void UnloadContent()
+        { }
+
+        public virtual void BeginUpdate()
+        { }
+
+        public virtual void Update(HKGameTime gameTime)
+        { }
+
+        public virtual void EndUpdate()
+        { }
+
+        public virtual void BeginDraw()
+        { }
+
+        public virtual void Draw(HKGameTime gameTime)
+        { }
+
+        public virtual void EndDraw()
+        { }
+
+        public virtual void EndRun()
+        { }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
 
         public void RegisterEvents()
@@ -50,53 +64,50 @@ namespace Hike.Framework.WindowsUniversal
 
             innerGame.OnInitialise += () =>
             {
-                OnInitialise?.Invoke();
+                Initialise();
             };
 
             innerGame.OnLoadContent += () =>
             {
-                OnLoadContent?.Invoke();
+                LoadContent();
             };
 
             innerGame.OnUnloadContent += () =>
             {
-                OnUnloadContent?.Invoke();
+                UnloadContent();
             };
 
             innerGame.OnBeginRun += () =>
             {
-                OnBeginRun?.Invoke();
+                BeginRun();
             };
 
             innerGame.OnUpdate += (g) =>
             {
-                OnUpdate?.Invoke(g);
+                BeginUpdate();
+                Update(g);
+                EndUpdate();
             };
 
             innerGame.OnEndRun += () =>
             {
-                OnEndRun?.Invoke();
+                EndRun();
             };
 
             innerGame.OnBeginDraw += () =>
             {
-                OnBeginDraw?.Invoke();
+                BeginDraw();
             };
 
             innerGame.OnDraw += (g) =>
             {
-                OnDraw?.Invoke(g);
+                Draw(g);
             };
 
             innerGame.OnEndDraw += () =>
             {
-                OnEndDraw?.Invoke();
+                EndDraw();
             };
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
         }
     }
 }
