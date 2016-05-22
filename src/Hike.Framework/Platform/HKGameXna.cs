@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Hike.Framework.WindowsUniversal.System;
+using Hike.Framework.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Hike.Framework.WindowsUniversal.Platform
+namespace Hike.Framework.Platform
 {
     public class HKGameXna : Game
     {

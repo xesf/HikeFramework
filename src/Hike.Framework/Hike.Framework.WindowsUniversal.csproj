@@ -7,7 +7,7 @@
     <ProjectGuid>{A78D8FD6-5447-40F0-9428-8A351E8070E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hike.Framework.WindowsUniversal</RootNamespace>
+    <RootNamespace>Hike.Framework</RootNamespace>
     <AssemblyName>Hike.Framework.WindowsUniversal</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>

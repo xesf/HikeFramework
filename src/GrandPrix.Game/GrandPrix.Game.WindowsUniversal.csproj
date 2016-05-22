@@ -7,7 +7,7 @@
     <ProjectGuid>{3F96A5D2-C0E2-401E-991F-007F6C3723CB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GrandPrix.Game.WindowsUniversal</RootNamespace>
+    <RootNamespace>GrandPrix.Game</RootNamespace>
     <AssemblyName>GrandPrix.Game.WindowsUniversal</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>

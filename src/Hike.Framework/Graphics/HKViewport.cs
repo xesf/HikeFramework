@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hike.Framework.WindowsUniversal.Graphics
+namespace Hike.Framework.Graphics
 {
     public struct HKViewport
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hike.Framework.WindowsUniversal.System
+namespace Hike.Framework.System
 {
     public class HKGameTime
     {

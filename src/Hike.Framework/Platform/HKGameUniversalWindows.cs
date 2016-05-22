@@ -2,7 +2,7 @@
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 
-namespace Hike.Framework.WindowsUniversal.Platform
+namespace Hike.Framework.Platform
 {
     public class HKGameUniversalWindows<T>
         where T : HKGame, new()

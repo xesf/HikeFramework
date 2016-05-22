@@ -1,8 +1,8 @@
 ﻿using System;
-using Hike.Framework.WindowsUniversal.Platform;
-using Hike.Framework.WindowsUniversal.System;
+using Hike.Framework.Platform;
+using Hike.Framework.System;
 
-namespace Hike.Framework.WindowsUniversal
+namespace Hike.Framework
 {
     /// <summary>
     /// Hike Framework Game class
