@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hike.Framework.WindowsUniversal.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -13,16 +14,20 @@ namespace Hike.Framework.WindowsUniversal.Platform
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
 
-        public event EventHandler OnLoadContent;
-        public event EventHandler OnUnloadContent;
+        public delegate void DefaultHandler();
+        public delegate void GameTimeHandler(HKGameTime gameTime);
 
-        public event EventHandler OnBeginRun;
-        public event EventHandler OnUpdate;
-        public event EventHandler OnEndRun;
+        public event DefaultHandler OnInitialise;
+        public event DefaultHandler OnLoadContent;
+        public event DefaultHandler OnUnloadContent;
 
-        public event EventHandler OnBeginDraw;
-        public event EventHandler OnDraw;
-        public event EventHandler OnEndDraw;
+        public event DefaultHandler OnBeginRun;
+        public event GameTimeHandler OnUpdate;
+        public event DefaultHandler OnEndRun;
+
+        public event DefaultHandler OnBeginDraw;
+        public event GameTimeHandler OnDraw;
+        public event DefaultHandler OnEndDraw;
 
         public GraphicsDeviceManager Graphics { get { return _graphics; } }
         public SpriteBatch DefaultSpriteBatch { get { return _spriteBatch; } }
@@ -33,17 +38,23 @@ namespace Hike.Framework.WindowsUniversal.Platform
             Content.RootDirectory = "Content";
         }
 
+        protected override void Initialize()
+        {
+            base.Initialize();
+            OnInitialise?.Invoke();
+        }
+
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             base.LoadContent();
-            OnLoadContent?.Invoke(this, null);
+            OnLoadContent?.Invoke();
         }
 
         protected override void UnloadContent()
         {
-            OnUnloadContent?.Invoke(this, null);
+            OnUnloadContent?.Invoke();
             base.UnloadContent();
         }
 
@@ -51,7 +62,7 @@ namespace Hike.Framework.WindowsUniversal.Platform
         protected override void BeginRun()
         {
             base.BeginRun();
-            OnBeginRun?.Invoke(this, null);
+            OnBeginRun?.Invoke();
         }
 
         protected override void Update(GameTime gameTime)
@@ -59,26 +70,37 @@ namespace Hike.Framework.WindowsUniversal.Platform
             //to avoid calling the components
             //base.Update(gameTime);
 
-            OnUpdate?.Invoke(this, null);
+            HKGameTime gt = new HKGameTime();
+            gt.ElapsedGameTime = gameTime.ElapsedGameTime;
+            gt.IsRunningSlowly = gameTime.IsRunningSlowly;
+            gt.TotalGameTime = gameTime.TotalGameTime;
+
+            OnUpdate?.Invoke(gt);
         }
 
         protected override void EndRun()
         {
-            OnEndRun?.Invoke(this, null);
+            OnEndRun?.Invoke();
             base.EndRun();
         }
 
         protected override bool BeginDraw()
         {
             var canBegin = base.BeginDraw();
-            OnBeginDraw?.Invoke(this, null);
+            OnBeginDraw?.Invoke();
             return canBegin;
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            OnDraw?.Invoke(this, null);
+
+            HKGameTime gt = new HKGameTime();
+            gt.ElapsedGameTime = gameTime.ElapsedGameTime;
+            gt.IsRunningSlowly = gameTime.IsRunningSlowly;
+            gt.TotalGameTime = gameTime.TotalGameTime;
+
+            OnDraw?.Invoke(gt);
 
             //to avoid calling the components
             //base.Draw(gameTime);    
@@ -86,7 +108,7 @@ namespace Hike.Framework.WindowsUniversal.Platform
 
         protected override void EndDraw()
         {
-            OnEndDraw?.Invoke(this, null);
+            OnEndDraw?.Invoke();
             base.EndDraw();
         }
     }

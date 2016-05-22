@@ -10,35 +10,89 @@ namespace Hike.Framework.WindowsUniversal
     /// </summary>
     public partial class HKGame : IDisposable
     {
-        private HKGameXna _xnaGame;
-        public HKGameXna XnaGame { get { return _xnaGame; } set { _xnaGame = value; } }
-
-        public HKGame()
-        { }
-        
         protected string _title = "Hike Framework";
         protected int _screenWidth; /** desire screen width */
         protected int _screenHeight; /** desire screen height */
 
-        /** Initialize systems */
-        public virtual void Initialize()
-        { }
+        private HKGameXna _xnaGame;
+        public HKGameXna XnaGame { get { return _xnaGame; } set { _xnaGame = value; RegisterEvents(); } }
 
-        /** Loading contents */
-        public virtual void LoadContent()
-        { }
+        public delegate void InitialiseHandler();
+        public delegate void LoadContentHandler();
+        public delegate void UnloadContentHandler();
+        public delegate void BeginRunHandler();
+        public delegate void UpdateHandler(HKGameTime gameTime);
+        public delegate void EndRunHandler();
+        public delegate void BeginDrawHandler();
+        public delegate void DrawHandler(HKGameTime gameTime);
+        public delegate void EndDrawHandler();
 
-        /** Handle system events */
-        public virtual void ProcessEvents()
-        { }
+        public event InitialiseHandler OnInitialise;
+        public event LoadContentHandler OnLoadContent;
+        public event UnloadContentHandler OnUnloadContent;
 
-        /** main loop update */
-        public virtual void Update(HKGameTime gameTime)
-        { }
+        public event BeginRunHandler OnBeginRun;
+        public event UpdateHandler OnUpdate;
+        public event EndRunHandler OnEndRun;
 
-        /** main loop render */
-        public virtual void Draw()
-        { }
+        public event BeginDrawHandler OnBeginDraw;
+        public event DrawHandler OnDraw;
+        public event EndDrawHandler OnEndDraw;
+
+        public HKGame()
+        {
+
+        }
+
+        public void RegisterEvents()
+        {
+            var innerGame = XnaGame;
+
+            innerGame.OnInitialise += () =>
+            {
+                OnInitialise?.Invoke();
+            };
+
+            innerGame.OnLoadContent += () =>
+            {
+                OnLoadContent?.Invoke();
+            };
+
+            innerGame.OnUnloadContent += () =>
+            {
+                OnUnloadContent?.Invoke();
+            };
+
+            innerGame.OnBeginRun += () =>
+            {
+                OnBeginRun?.Invoke();
+            };
+
+            innerGame.OnUpdate += (g) =>
+            {
+                OnUpdate?.Invoke(g);
+            };
+
+            innerGame.OnEndRun += () =>
+            {
+                OnEndRun?.Invoke();
+            };
+
+            innerGame.OnBeginDraw += () =>
+            {
+                OnBeginDraw?.Invoke();
+            };
+
+            innerGame.OnDraw += (g) =>
+            {
+                OnDraw?.Invoke(g);
+            };
+
+            innerGame.OnEndDraw += () =>
+            {
+                OnEndDraw?.Invoke();
+            };
+        }
 
         public void Dispose()
         {
