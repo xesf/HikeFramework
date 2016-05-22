@@ -112,7 +112,7 @@
     <EmbeddedResource Include="Properties\GrandPrix.Game.WindowsUniversal.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hike.Framework.WindowsUniversal\Hike.Framework.WindowsUniversal.csproj">
+    <ProjectReference Include="..\Hike.Framework\Hike.Framework.WindowsUniversal.csproj">
       <Project>{a78d8fd6-5447-40f0-9428-8a351e8070e6}</Project>
       <Name>Hike.Framework.WindowsUniversal</Name>
     </ProjectReference>

@@ -131,11 +131,11 @@
       <Project>{09c41a48-7bf3-4a46-9eb8-ce95b4c27ca9}</Project>
       <Name>MonoGame.Framework.WindowsUniversal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GrandPrix.Game.WindowsUniversal\GrandPrix.Game.WindowsUniversal.csproj">
+    <ProjectReference Include="..\GrandPrix.Game\GrandPrix.Game.WindowsUniversal.csproj">
       <Project>{3f96a5d2-c0e2-401e-991f-007f6c3723cb}</Project>
       <Name>GrandPrix.Game.WindowsUniversal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hike.Framework.WindowsUniversal\Hike.Framework.WindowsUniversal.csproj">
+    <ProjectReference Include="..\Hike.Framework\Hike.Framework.WindowsUniversal.csproj">
       <Project>{a78d8fd6-5447-40f0-9428-8a351e8070e6}</Project>
       <Name>Hike.Framework.WindowsUniversal</Name>
     </ProjectReference>
