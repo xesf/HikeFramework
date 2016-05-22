@@ -110,10 +110,8 @@
     <Compile Include="Graphics\HKViewport.cs" />
     <Compile Include="HKGame.cs" />
     <Compile Include="Platform\HKGameXna.cs" />
-    <Compile Include="Platform\UniversalWindows\HKGameUniversalWindows.cs" />
+    <Compile Include="Platform\HKGameUniversalWindows.cs" />
     <Compile Include="System\HKGameTime.cs" />
-    <Compile Include="tmp\HKGame.Monogame.cs" />
-    <Compile Include="tmp\HKGamePlataform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\HKSize.cs" />
     <EmbeddedResource Include="Properties\Hike.Framework.WindowsUniversal.rd.xml" />

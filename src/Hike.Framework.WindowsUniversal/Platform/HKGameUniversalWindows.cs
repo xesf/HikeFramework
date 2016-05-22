@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using MonoGame.Framework;
+﻿using MonoGame.Framework;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 
-namespace Hike.Framework.WindowsUniversal.Platform.UniversalWindows
+namespace Hike.Framework.WindowsUniversal.Platform
 {
     public class HKGameUniversalWindows<T>
         where T : HKGame, new()
